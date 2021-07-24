@@ -1,1 +1,4 @@
 .expo
+.expo-shared
+.vscode
+.node_modules
