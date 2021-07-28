@@ -4,75 +4,73 @@ import {
   Text,
   View,
   Image,
+  ImageBackground,
+  TouchableOpacity,
   StatusBar,
   SafeAreaView,
   Platform,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 function WelcomeScreen(props) {
   return (
-    <SafeAreaView
+    <ImageBackground
+      blurRadius={0}
       style={[
         styles.container,
         { justifyContent: "flex-end", alignContent: "center" },
       ]}
+      source={require("../assets/login-background.jpg")}
     >
-      <Image
-        source={require("../assets/sun.png")}
+      <Ionicons
+        name="logo-vue"
         style={{
-          height: 100,
-          width: 100,
+          position: "absolute",
           top: 200,
           alignSelf: "center",
-          position: "absolute",
         }}
-      ></Image>
-      <Text
-        style={{
-          fontSize: 20,
-          fontWeight: "bold",
-          color: "#fff",
-          top: 350,
-          alignSelf: "center",
-          position: "absolute",
-        }}
-      >
-        Say what you feel , when you feel
-      </Text>
-      <View
-        style={{
-          backgroundColor: "#f52a2a",
-          height: 75,
-          justifyContent: "flex-end",
-        }}
-      >
+        size={100}
+        color="silver"
+      />
+      <Text style={styles.caption}>Say what you feel , when you feel</Text>
+      <TouchableOpacity style={[styles.sign, { backgroundColor: "#ff8080" }]}>
         <Text style={styles.text}>Sign In</Text>
-      </View>
-      <View
-        style={{
-          backgroundColor: "#2eff7e",
-          height: 75,
-          justifyContent: "flex-end",
-        }}
-      >
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.sign, { backgroundColor: "#99ff99" }]}>
         <Text style={styles.text}>Sign Up</Text>
-      </View>
-    </SafeAreaView>
+      </TouchableOpacity>
+    </ImageBackground>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    backgroundColor: "black",
     flex: 1,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     flexDirection: "column",
+  },
+  caption: {
+    fontFamily: Platform.OS === "android" ? "Roboto" : "Courier",
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#fff",
+    top: 300,
+    alignSelf: "center",
+    position: "absolute",
   },
   text: {
     color: "#fff",
     fontSize: 40,
-    fontWeight: "bold",
     justifyContent: "center",
     alignSelf: "center",
-    paddingBottom: 20,
+    paddingBottom: 30,
+  },
+  sign: {
+    height: 100,
+    width: 300,
+    justifyContent: "flex-end",
+    alignSelf: "center",
+    borderRadius: 50,
+    borderRadius: 50,
+    margin: 10,
   },
 });
 
