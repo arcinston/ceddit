@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 function Cards({ title, context }) {
   return (
@@ -13,7 +13,7 @@ function Cards({ title, context }) {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 15,
-    backgroundColor: "white",
+    backgroundColor: "grey",
     padding: 20,
     margin: 10,
   },
