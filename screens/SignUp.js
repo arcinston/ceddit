@@ -10,16 +10,17 @@ import {
   StatusBar,
 } from "react-native";
 
-function WelcomeScreen(props) {
+function SignUp(props) {
   const [email, setText] = useState("");
   const [password, setPass] = useState("");
+  const [confirm_password, setConfirmPass] = useState("");
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.signin}>Sign In</Text>
+      <Text style={styles.signin}>Sign Up</Text>
       <TextInput
         style={styles.email}
-        placeholder="     Enter Email-Id"
+        placeholder="     Email"
         placeholderTextColor="grey"
         onChangeText={setText}
         value={email}
@@ -31,11 +32,18 @@ function WelcomeScreen(props) {
         onChangeText={setPass}
         value={password}
       />
+      <TextInput
+        style={styles.email}
+        placeholder="     Confirm Password"
+        placeholderTextColor="grey"
+        onChangeText={setConfirmPass}
+        value={confirm_password}
+      />
       <TouchableOpacity style={[styles.sign, { backgroundColor: "#02dac5" }]}>
-        <Text style={styles.text}>Sign In</Text>
+        <Text style={styles.text}>Sign Up</Text>
       </TouchableOpacity>
 
-      <Text style={styles.newaccount}>Want to create an account ? Sign Up</Text>
+      <Text style={styles.newaccount}>Already have an account ? Sign In</Text>
     </SafeAreaView>
   );
 }
@@ -70,7 +78,6 @@ const styles = StyleSheet.create({
     color: "#7d7a7a",
   },
   caption: {
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Courier",
     fontSize: 25,
     fontWeight: "bold",
     color: "#fff",
@@ -103,4 +110,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomeScreen;
+export default SignUp;
