@@ -9,14 +9,19 @@ import {
   Platform,
   StatusBar,
 } from "react-native";
+import {useNavigation} from '@react-navigation/native';
+// const navigation = useNavigation();
+
 
 function WelcomeScreen(props) {
+  const navigation = useNavigation();
   const [email, setText] = useState("");
   const [password, setPass] = useState("");
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.signin}>Sign In</Text>
+      
+      <Text style={styles.signin}>Creddit</Text>
       <TextInput
         style={styles.email}
         placeholder="     Enter Email-Id"
@@ -31,11 +36,17 @@ function WelcomeScreen(props) {
         onChangeText={setPass}
         value={password}
       />
+      
       <TouchableOpacity style={[styles.sign, { backgroundColor: "#02dac5" }]}>
         <Text style={styles.text}>Sign In</Text>
       </TouchableOpacity>
 
-      <Text style={styles.newaccount}>Want to create an account ? Sign Up</Text>
+      <Text style={styles.newaccount}>Want to create an account ?</Text> 
+
+      <Text 
+      style={[styles.newaccount, { color: "#02dac5" }]}
+      onPress={()=>navigation.push('Sign up')} 
+      >Sign up</Text>
     </SafeAreaView>
   );
 }
@@ -53,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     position: "relative",
     paddingLeft: 10,
-    top: 125,
+    top: 170,
     margin: 12,
     marginLeft: 40,
     borderWidth: 1,
@@ -63,7 +74,7 @@ const styles = StyleSheet.create({
   },
   signin: {
     position: "relative",
-    top: 50,
+    top: 100,
     left: 25,
     fontSize: 60,
     fontWeight: "bold",
@@ -74,7 +85,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     color: "#fff",
-    top: 300,
+    top: 250,
     alignSelf: "center",
     position: "absolute",
   },
@@ -87,7 +98,7 @@ const styles = StyleSheet.create({
   sign: {
     height: 50,
     width: 150,
-    top: 300,
+    top: 250,
     justifyContent: "flex-end",
     alignSelf: "center",
     borderRadius: 20,
@@ -98,7 +109,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#fff",
     alignSelf: "center",
-    top: 350,
+    top: 250,
     position: "relative",
   },
 });

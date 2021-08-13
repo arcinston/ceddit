@@ -9,8 +9,10 @@ import {
   Platform,
   StatusBar,
 } from "react-native";
+import {useNavigation} from '@react-navigation/native';
 
 function SignUp(props) {
+  const navigation = useNavigation();
   const [email, setText] = useState("");
   const [password, setPass] = useState("");
   const [confirm_password, setConfirmPass] = useState("");
@@ -42,8 +44,12 @@ function SignUp(props) {
       <TouchableOpacity style={[styles.sign, { backgroundColor: "#02dac5" }]}>
         <Text style={styles.text}>Sign Up</Text>
       </TouchableOpacity>
-
-      <Text style={styles.newaccount}>Already have an account ? Sign In</Text>
+      <Text 
+      style={[styles.newaccount, { color: "#02dac5" }]}
+      onPress={()=>navigation.push('Sign in')} 
+      >Back</Text>
+{/* 
+      <Text style={styles.newaccount}>Already have an account ? Sign In</Text> */}
     </SafeAreaView>
   );
 }
@@ -71,7 +77,7 @@ const styles = StyleSheet.create({
   },
   signin: {
     position: "relative",
-    top: 50,
+    top: 100,
     left: 25,
     fontSize: 60,
     fontWeight: "bold",
@@ -94,7 +100,7 @@ const styles = StyleSheet.create({
   sign: {
     height: 50,
     width: 150,
-    top: 300,
+    top: 200,
     justifyContent: "flex-end",
     alignSelf: "center",
     borderRadius: 20,
@@ -105,7 +111,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#fff",
     alignSelf: "center",
-    top: 350,
+    top: 200,
     position: "relative",
   },
 });
